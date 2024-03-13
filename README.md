@@ -104,6 +104,8 @@ cargo build --release
   ```
 + 需要使用 *Nightly* 版本的 Rust 进行编译。
 + 由于使用了 [**libpnet**](https://crates.io/crates/pnet) ，在Windows下需要安装 *WinPcap* 或 *pcap* 才能进行编译，详见[**libpnet**](https://crates.io/crates/pnet)。
+  + 把 [WinPcap开发工具包](https://www.winpcap.org/devel.htm) 中 WpdPack\Lib\x64\Packet.lib 放入本项目 lib/x64 目录即可
+    + target为32位时则把 WpdPack\Lib\Packet.lib 放入 lib
 + 目前在 Windows/Ubuntu(感谢hyh) 下编译通过，其余环境暂未测试。
 
 ### OpenWRT
