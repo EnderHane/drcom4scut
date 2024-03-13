@@ -48,7 +48,7 @@ pub fn get_mac(data: &mut Bytes) -> MacAddr {
 pub fn sleep_at(time: NaiveTime) -> Option<()> {
     let mut dt = Local::now().date_naive().and_time(time);
     while dt < Local::now().naive_local() {
-        dt += chrono::Duration::days(1);
+        dt += chrono::TimeDelta::try_days(1).unwrap();
     }
     while dt > Local::now().naive_local() {
         std::thread::sleep(SEC);

@@ -18,26 +18,32 @@ hostname = "0.3"
 log = "0.4"
 md-5 = "0.10"
 rand = "0.8"
-trust-dns-resolver = "0.22"
+trust-dns-resolver = "0.23"
 
 [dependencies.config]
-version = "0.13"
+version = "0.14"
 default-features = false
 features = ["yaml"]
 
 [dependencies.log4rs]
-version = "1.2.0"
+version = "1.3"
 features = ["gzip"]
 optional = true
 
 [dependencies.pnet]
-version = "0.33"
+version = "0.34"
 features = ["std"]
 
-[profile.release]
+[profile.release-opt]
+inherits = "release"
 opt-level = 3
 lto = true
-panic = 'abort'
+
+[profile.release-min]
+inherits = "release"
+opt-level = 3
+lto = true
+panic = "abort"
 strip = true
 
 [features]
